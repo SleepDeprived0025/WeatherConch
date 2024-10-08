@@ -3,33 +3,66 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+		</style>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="/static/styles.css" />
 		<title>Weather Conch</title>
 	</head>
 	<% if (locals.apiKey === null) { %>
 	<body>
-		<h1>Welcome to Weather Conch</h1>
-		<h2>A simple way to check the weather</h2>
-		<form action="/" method="POST">
-			<label for="city">Enter a city:</label>
-			<input type="text" name="city" required placeholder="ie. New York" />
-			<br />
-			<fieldset>
-				<legend>Units</legend>
-				<input type="radio" name="units" value="metric" checked /> Metric
-				<input type="radio" name="units" value="imperial" /> Imperial
-			</fieldset>
-			<br />
-			<label for="api">Enter your API Key:</label>
-			<input type="text" name="api" required />
-			<p>
-				get your api key from <a href="https://openweathermap.org/">here</a>
-			</p>
-			<input type="submit" value="Submit" />
-		</form>
+		<div class="form-container">
+			<h1>Weather Conch</h1>
+			<h2>A quick way to check the weather</h2>
+			<form action="/" method="POST">
+				<label for="city">Enter a city</label><br />
+				<input
+					id="city"
+					type="text"
+					name="city"
+					required
+					placeholder="ie. New York"
+				/>
+				<br />
+				<fieldset>
+					<legend>Units</legend>
+					<div>
+						<input
+							type="radio"
+							id="celsius"
+							name="units"
+							value="metric"
+							checked
+						/><label for="celsius">Celsius</label>
+					</div>
+					<div>
+						<input
+							type="radio"
+							id=" fahrenheit"
+							name="units"
+							value="imperial"
+						/><label for="fahrenheit">Fahrenheit</label>
+					</div>
+				</fieldset>
+				<br />
+				<label for="api">Enter your API Key</label><br />
+				<input id="api" type="text" name="api" required />
+				<p>
+					get your api key from <a href="https://openweathermap.org/">here</a>
+				</p>
+				<button type="button" value="Submit">CHECK</button>
+			</form>
+		</div>
 	</body>
 	<% } else { %>
 	<body>
-		<main>
+		<div class="status-container">
 			<h1>Weather Conch</h1>
 			<div class="weather-container">
 				<h1><%= locals.city %></h1>
@@ -46,7 +79,7 @@
 			<form action="/reset" method="POST">
 				<button type="submit">Reset</button>
 			</form>
-		</main>
+		</div>
 	</body>
 	<% } %>
 </html>

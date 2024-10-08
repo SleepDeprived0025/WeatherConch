@@ -5,6 +5,8 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
+app.use("/static", express.static("public"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -39,7 +41,10 @@ app.post("/", (req, res) => {
 							temp: Math.round(response.data.main.temp),
 							realTemp: Math.round(response.data.main.feels_like),
 							desc: response.data.weather[0].description,
-                            icon: "http://openweathermap.org/img/wn/" + response.data.weather[0].icon + "@2x.png",
+							icon:
+								"http://openweathermap.org/img/wn/" +
+								response.data.weather[0].icon +
+								"@2x.png",
 							metricUnit: units,
 						});
 					});
@@ -50,9 +55,9 @@ app.post("/", (req, res) => {
 });
 
 app.post("/reset", (req, res) => {
-    res.render("index.ejs", {
-        apiKey: null,
-    });
+	res.render("index.ejs", {
+		apiKey: null,
+	});
 });
 
 app.listen(port, () => {
