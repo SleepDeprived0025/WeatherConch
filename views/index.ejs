@@ -21,6 +21,9 @@
 			<br />
 			<label for="api">Enter your API Key:</label>
 			<input type="text" name="api" required />
+			<p>
+				get your api key from <a href="https://openweathermap.org/">here</a>
+			</p>
 			<input type="submit" value="Submit" />
 		</form>
 	</body>
@@ -28,19 +31,22 @@
 	<body>
 		<main>
 			<h1>Weather Conch</h1>
-		<div class="weather-container">
-			<h1><%= locals.city %></h1>
-			<h2>
-				<%= locals.temp %> <%if(locals.metricUnit === "metric"){%> °C<%}else
-				if(locals.metricUnit === "imperial"){%> °F<%}%>
-			</h2>
-			<h2>
-				<%= locals.realTemp %> <%if(locals.metricUnit === "metric"){%> °C<%}else
-				if(locals.metricUnit === "imperial"){%> °F<%}%>
-			</h2>
-			<h3><%= locals.desc%></h3>
-		</div>
-	</main>
+			<div class="weather-container">
+				<h1><%= locals.city %></h1>
+				<h3>
+					Temperature <br /><%= locals.temp %> <%if(locals.metricUnit ===
+					"metric"){%> °C<%}else if(locals.metricUnit === "imperial"){%> °F<%}%>
+				</h3>
+				<h3>
+					Feels Like <br /><%= locals.realTemp %> <%if(locals.metricUnit ===
+					"metric"){%> °C<%}else if(locals.metricUnit === "imperial"){%> °F<%}%>
+				</h3>
+				<h2><%= locals.desc%><img src="<%= locals.icon %>" /></h2>
+			</div>
+			<form action="/reset" method="POST">
+				<button type="submit">Reset</button>
+			</form>
+		</main>
 	</body>
 	<% } %>
 </html>
