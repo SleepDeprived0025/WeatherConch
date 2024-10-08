@@ -5,21 +5,42 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weather Conch</title>
 	</head>
+	<% if (locals.apiKey === null) { %>
 	<body>
 		<h1>Welcome to Weather Conch</h1>
+		<h2>A simple way to check the weather</h2>
 		<form action="/" method="POST">
 			<label for="city">Enter a city:</label>
 			<input type="text" name="city" required placeholder="ie. New York" />
 			<br />
 			<fieldset>
-                <legend>Units</legend>
-                <input type="radio" name="units" value="metric" checked> Metric
-                <input type="radio" name="units" value="imperial"> Imperial
-            </fieldset>
-            <br />
-            <label for="api">Enter your API Key:</label>
-            <input type="text" name="api" required/>
+				<legend>Units</legend>
+				<input type="radio" name="units" value="metric" checked /> Metric
+				<input type="radio" name="units" value="imperial" /> Imperial
+			</fieldset>
+			<br />
+			<label for="api">Enter your API Key:</label>
+			<input type="text" name="api" required />
 			<input type="submit" value="Submit" />
 		</form>
 	</body>
+	<% } else { %>
+	<body>
+		<main>
+			<h1>Weather Conch</h1>
+		<div class="weather-container">
+			<h1><%= locals.city %></h1>
+			<h2>
+				<%= locals.temp %> <%if(locals.metricUnit === "metric"){%> °C<%}else
+				if(locals.metricUnit === "imperial"){%> °F<%}%>
+			</h2>
+			<h2>
+				<%= locals.realTemp %> <%if(locals.metricUnit === "metric"){%> °C<%}else
+				if(locals.metricUnit === "imperial"){%> °F<%}%>
+			</h2>
+			<h3><%= locals.desc%></h3>
+		</div>
+	</main>
+	</body>
+	<% } %>
 </html>
