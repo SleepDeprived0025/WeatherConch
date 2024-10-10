@@ -1,12 +1,14 @@
 # Weather Conch
 
 A website to quickly check the weather in any location using [OpenWeather Api](https://openweathermap.org/). This was a project mainly for me to practice working with Api and understanding data in JSON.
+The website will tell you the current temperature, what it feels like and the weather description for the location you've provided.
 
 ## This was built with
 - Node
 - Express
 - EJS
 - Axios
+
 
 ## To view the project **locally**:
 
