@@ -50,7 +50,7 @@ app.post("/", (req, res) => {
 					});
 			});
 	} catch (error) {
-		throw new error();
+		console.log(error);
 	}
 });
 
