@@ -22,7 +22,8 @@ body {
 	font-weight: bold;
 }
 
-.form-container, .status-container {
+.form-container,
+.status-container {
 	justify-content: center;
 	flex-direction: column;
 	height: 100vh;
@@ -75,10 +76,12 @@ body {
 	border: 1px solid #4f96b0;
 }
 
-.form-container > form > button {
+.form-container > form > button,
+.status-container > form > button {
 	background-color: #4f96b0;
 	margin-top: 15px;
 	color: white;
+	cursor: pointer;
 	border: none;
 	border-radius: 15px;
 	width: 275px;
@@ -102,9 +105,44 @@ body {
 	color: #0077b5;
 }
 
-.form-container > form > button:hover {
+.form-container > form > button:hover,
+.status-container > form > button:hover {
 	opacity: 0.8;
 	box-shadow: 0 0 10px rgba(29, 27, 27, 0.3);
 }
 
 /* Status Container */
+
+.weather-container {
+	background: radial-gradient(#0bd1f4 60%, #80fffc 80%);
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 400px;
+	height: fit-content;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 10px;
+}
+
+.weather-container > h2 {
+	margin: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: thick double #20373f;
+	border-radius: 10px;
+}
+
+.weather-container > h1 {
+	text-align: end;
+}
+
+.weather-container > h3 {
+	font-size: 1.3rem;
+	margin-top: 10px;
+	justify-content: flex-end;
+	align-items: flex-end;
+	text-align: right;
+}

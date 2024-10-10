@@ -37,15 +37,15 @@ app.post("/", (req, res) => {
 					)
 					.then((response) => {
 						res.render("index.ejs", {
-							city: response.data.name,
+							city: response.data.name.toUpperCase(),
 							temp: Math.round(response.data.main.temp),
 							realTemp: Math.round(response.data.main.feels_like),
-							desc: response.data.weather[0].description,
+							desc: response.data.weather[0].description.toUpperCase(),
 							icon:
 								"http://openweathermap.org/img/wn/" +
 								response.data.weather[0].icon +
 								"@2x.png",
-							metricUnit: units,
+							measureUnit: units,
 						});
 					});
 			});

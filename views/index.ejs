@@ -68,14 +68,16 @@
 			<div class="weather-container">
 				<h1><%= locals.city %></h1>
 				<h3>
-					Temperature <br /><%= locals.temp %> <%if(locals.metricUnit ===
-					"metric"){%> °C<%}else if(locals.metricUnit === "imperial"){%> °F<%}%>
+					Temperature <br /><%= locals.temp %> <%if(locals.measureUnit ===
+					"metric"){%> °C<%}else if(locals.measureUnit === "imperial"){%>
+					°F<%}%>
 				</h3>
 				<h3>
-					Feels Like <br /><%= locals.realTemp %> <%if(locals.metricUnit ===
-					"metric"){%> °C<%}else if(locals.metricUnit === "imperial"){%> °F<%}%>
+					Feels Like <br /><%= locals.realTemp %> <%if(locals.measureUnit ===
+					"metric"){%> °C<%}else if(locals.measureUnit === "imperial"){%>
+					°F<%}%>
 				</h3>
-				<h2><%= locals.desc%><img src="<%= locals.icon %>" /></h2>
+				<h2><%= locals.desc %><img src="<%= locals.icon %>" /></h2>
 			</div>
 			<form action="/reset" method="POST">
 				<button type="submit">Reset</button>
